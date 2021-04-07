@@ -1826,7 +1826,7 @@ public class MissionManager : MonoBehaviour
 
     public void CreateMissionSetupSearchAndDestroy()
     {
-        if (randomGenMissionSetupSearchAndDestroy = null)
+        if (randomGenMissionSetupSearchAndDestroy == null)
         {
             randomGenMissionSetupSearchAndDestroy = new GameObject().AddComponent<RandomGenMissionSetupSearchAndDestroy>();
         }

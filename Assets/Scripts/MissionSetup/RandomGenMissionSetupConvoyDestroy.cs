@@ -65,6 +65,8 @@ public class RandomGenMissionSetupConvoyDestroy : RandomGenMissionSetupAbstract
 
         DrawSpawnPointsEnemyGizmos(spawnPointsEnemy);
 
+        DrawSpawnPointsEnemyGizmos(spawnPointsConvoyEnemy);
+
         DrawWayPointsEnemyGizmos(wayPointsConvoy);
     }
 

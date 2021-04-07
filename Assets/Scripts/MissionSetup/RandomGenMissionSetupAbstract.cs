@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public abstract class RandomGenMissionSetupAbstract : MonoBehaviour
 {
+#if UNITY_EDITOR
+    [SerializeField]
+    bool showGizmosOnSelected = false;
+#endif
+
     public Transform[] navigationPoints = new Transform[0];
 
     //Color navPointColor = new Color(0.0f, 1.0f, 1.0f, 0.25f);
@@ -22,6 +27,7 @@ public abstract class RandomGenMissionSetupAbstract : MonoBehaviour
     protected Vector3 spawnPointScaleBase = new Vector3(12.0f, 4.0f, 12.0f);
 
 #if UNITY_EDITOR
+
     public abstract KeyValuePair<string, Color> GetMissionValidity();
 
     public abstract void CreateSetupObjects(Transform landingZoneNavPoint);
@@ -29,6 +35,12 @@ public abstract class RandomGenMissionSetupAbstract : MonoBehaviour
     public virtual void DrawGizmos()
     {
         DrawNavPointGizmos(navigationPoints);
+    }
+
+    protected void OnDrawGizmosSelected()
+    {
+        if (showGizmosOnSelected)
+            DrawGizmos();
     }
 
     protected GameObject[] CreateNamedGameObjects(int count, string nameStart)
